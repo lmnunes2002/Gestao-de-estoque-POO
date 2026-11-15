@@ -1,14 +1,14 @@
 package exceptions;
 
 public class ProdutoNaoEncontradoException extends EstoqueException{
-	private int id;
+	private String id;
 	
-	public ProdutoNaoEncontradoException(int id) {
+	public ProdutoNaoEncontradoException(String id) {
 		super("Produto não encontrado, id procurado: " + id);
 		this.id = id;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
