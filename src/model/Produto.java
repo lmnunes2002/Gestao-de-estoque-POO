@@ -92,6 +92,10 @@ public abstract class Produto {
 		this.status = status;
 	}
 
+	public Localizacao getLocalizacao() {
+		return localizacao;
+	}
+
 	public abstract String getDescricao();
 
 	public double calcularValorTotal() {
@@ -119,10 +123,15 @@ public abstract class Produto {
 		this.quantidade -= quantidade;
 		atualizarStatus();
 	}
-	
-	public Localizacao getLocalizacao() {
-        return localizacao;
-    }
+
+	public boolean abaixoDoMinimo() {
+		if (this.quantidade < this.estoqueMinimo) {
+			return true;
+		}
+
+		return false;
+
+	}
 
 	private void atualizarStatus() {
 		if (this.quantidade == 0) {
