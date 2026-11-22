@@ -6,7 +6,7 @@ public class ItemPedido {
 	private Produto produto;
 	private Integer quantidade;
 	private Double precoUnitario;
-	
+
 	public ItemPedido() {
 	}
 
@@ -39,8 +39,14 @@ public class ItemPedido {
 	public void setPrecoUnitario(Double precoUnitario) {
 		this.precoUnitario = precoUnitario;
 	}
-	
+
 	public double calcularSubtotal() {
 		return this.quantidade * this.precoUnitario;
 	}
+
+	@Override
+	public String toString() {
+		return "\nProduto: " + produto + "\nQuantidade: " + quantidade + "\nPreco por unidade: " + precoUnitario;
+	}
+
 }
