@@ -1,4 +1,4 @@
-package model;
+package produtos;
 
 import enums.StatusProduto;
 import enums.UnidadeMedida;

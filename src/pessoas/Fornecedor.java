@@ -1,12 +1,15 @@
-package model;
+package pessoas;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import produtos.Produto;
+
 public class Fornecedor extends Pessoa{
 	private String cnpj;
     private int prazoEntregaDias;
-    private List<Produto> produtosFornecidos;
+    
+    private List<Produto> produtosFornecidos = new ArrayList<>();
     
 	public Fornecedor() {
 	}
@@ -15,7 +18,6 @@ public class Fornecedor extends Pessoa{
 		super(id, nome, email);
 		this.cnpj = cnpj;
 		this.prazoEntregaDias = prazoEntregaDias;
-		this.produtosFornecidos = new ArrayList<>();
 	}
 
 	public String getCnpj() {
@@ -47,7 +49,7 @@ public class Fornecedor extends Pessoa{
 	}
 	
 	@Override
-	public String getPapel() {
+	public String getDocumento() {
 		return "Fornecedor: " + super.getNome() + " (CNPJ: " + getCnpj() + ")" + "\nE-mail: " + super.getEmail();
 	}
 }

@@ -1,4 +1,4 @@
-package model;
+package pessoas;
 
 public abstract class Pessoa {
 	private String id;
@@ -38,5 +38,5 @@ public abstract class Pessoa {
 		this.email = email;
 	}
 	
-	public abstract String getPapel();
+	public abstract String getDocumento();
 }

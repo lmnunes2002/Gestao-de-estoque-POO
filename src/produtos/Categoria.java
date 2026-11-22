@@ -1,4 +1,4 @@
-package model;
+package produtos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +6,13 @@ import java.util.List;
 public class Categoria {
 	private String nome;
 
-	private List<Produto> produtos;
+	private List<Produto> produtos = new ArrayList<>();
 
 	public Categoria() {
 	}
 
 	public Categoria(String nome) {
 		this.nome = nome;
-		this.produtos = new ArrayList<>();
 	}
 
 	public String getNome() {

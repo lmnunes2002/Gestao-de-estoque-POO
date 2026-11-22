@@ -1,4 +1,4 @@
-package model;
+package produtos;
 
 public class Localizacao {
 	private String corredor;
