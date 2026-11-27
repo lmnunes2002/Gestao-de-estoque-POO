@@ -1,6 +1,6 @@
 package produtos;
 
-public class ProdutoEletronico {
+public class ProdutoEletronico extends Produto implements Tributavel {
 	private int garantiaMeses;
 
 	public ProdutoEletronico() {
@@ -19,6 +19,11 @@ public class ProdutoEletronico {
 	}
 
 	public double calcularImposto() {
-		return 0.0;
+		return this.getPreco() * 0.15;
+	}
+
+	@Override
+	public String getDescricao() {
+		return "";
 	}
 }

@@ -5,8 +5,10 @@ import java.util.List;
 
 import exceptions.PedidoInvalidoException;
 import exceptions.PedidoNaoEncontradoException;
+import notasfiscais.NotaVenda;
 import pedidos.Pedido;
 import produtos.Produto;
+import service.Estoque;
 
 public class Cliente extends Pessoa {
 	private String cpf;
@@ -67,6 +69,13 @@ public class Cliente extends Pessoa {
 	
 	public void cancelarPedido(String numero) {
 		verificarPedido(numero).cancelar();
+	}
+	
+	public NotaVenda confirmarPedido(String numero, Estoque estoque) {
+	    Pedido pedido = verificarPedido(numero);
+	    NotaVenda nota = pedido.confirmar(estoque);
+	    nota.setCliente(this);
+	    return nota;
 	}
 
 	@Override

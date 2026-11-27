@@ -6,7 +6,9 @@ import java.util.List;
 
 import enums.StatusPedido;
 import exceptions.PedidoInvalidoException;
+import notasfiscais.NotaVenda;
 import produtos.Produto;
+import service.Estoque;
 
 public class Pedido {
 	private String numero;
@@ -76,6 +78,23 @@ public class Pedido {
 			total += item.calcularSubtotal();
 		}
 		return total;
+	}
+	
+	public NotaVenda confirmar(Estoque estoque) {
+	    if (status != StatusPedido.PENDENTE) {
+	        throw new PedidoInvalidoException("Só pedidos pendentes podem ser confirmados");
+	    }
+	    if (itens.isEmpty()) {
+	        throw new PedidoInvalidoException("Pedido sem itens");
+	    }
+	    NotaVenda nota = new NotaVenda();
+	    nota.setNumero("NV-" + numero);
+	    for (ItemPedido item : itens) {
+	        nota.adicionarItem(item.getProduto(), item.getQuantidade(), item.getProduto().getPreco());
+	    }
+	    estoque.processarNota(nota);
+	    this.status = StatusPedido.CONFIRMADO;
+	    return nota;
 	}
 
 	public void cancelar() {

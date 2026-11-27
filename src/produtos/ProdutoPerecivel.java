@@ -2,7 +2,7 @@ package produtos;
 
 import java.time.LocalDate;
 
-public class ProdutoPerecivel {
+public class ProdutoPerecivel extends Produto implements Tributavel{
 	private LocalDate dataValidade;
 
 	public ProdutoPerecivel() {
@@ -29,6 +29,11 @@ public class ProdutoPerecivel {
 	}
 
 	public double calcularImposto() {
-		return 0.0;
+		return this.getPreco() * 0.05;
+	}
+	
+	@Override
+	public String getDescricao() {
+		return "";
 	}
 }
